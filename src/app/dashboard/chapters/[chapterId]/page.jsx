@@ -164,11 +164,12 @@ import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
 import { getStatusIcon, getStatusClasses, getChapterId } from "@/lib/chapterHelper.js";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { chapters } from "@/data/chapters.js";
+// import { chapters } from "@/data/chapters.js";
 import ModuleCard from "@/components/ModuleCard";
 import { getUserIdByClerkId } from "@/actions/UserActions";
 import { getModuleCompletionDetails } from "@/actions/moduleActions";
 import { FaArrowRight } from "react-icons/fa";
+import { chapterMap } from "@/data/chapterDetails";
 
 export default function ChapterPage({ params }) {
   const { isLoaded, isSignedIn, user } = useUser();
@@ -177,7 +178,7 @@ export default function ChapterPage({ params }) {
   const { chapterId } = use(params);
 
   // Find chapter
-  const chapter = chapters.find((c) => c.id === chapterId);
+  const chapter = chapterMap[chapterId];
   if (!chapter) {
     return (
       <div className="min-h-screen flex items-center justify-center p-6 text-red-500 bg-[#1E2235] font-bold text-2xl">

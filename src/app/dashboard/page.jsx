@@ -67,12 +67,12 @@
 
 
 // dashboard/page.jsx
-import { chapters } from "@/data/chapters.js";
+import { chapterMap } from "@/data/chapterDetails.js";
 import ChapterCard from "@/components/ChapterCard.jsx";
 import { getModuleCompletionDetails } from "@/actions/moduleActions";
 import { currentUser } from "@clerk/nextjs/server";
 import { getUserIdByClerkId } from "@/actions/UserActions";
-import { getChapterCompletionDetails } from "@/actions/chapterActions";
+import { getChapterCompletionDetails } from "@/actions/chapterActions"
 
 export default async function DashboardPage() {
   const user = await currentUser();
@@ -87,13 +87,16 @@ export default async function DashboardPage() {
     );
   }
 
-  // ✅ Fetch all completed chapters
+  // Fetch all completed chapters
   const completedChapters = await getChapterCompletionDetails(userId);
   const completedChapterIds = completedChapters.map((c) => c.chapterId);
 
-  // ✅ Preload module completions
+  // Convert chapterMap → array for iteration
+  const chapterDetails = Object.values(chapterMap);
+
+  // Preload module completions
   const completionsMap = {};
-  for (const chapter of chapters) {
+  for (const chapter of chapterDetails) {
     completionsMap[chapter.id] = await getModuleCompletionDetails(
       userId,
       chapter.id
@@ -101,7 +104,7 @@ export default async function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#1E2235] text-[#D4D4D4] p-6 sm:p-4 font-sans">
+    <div className="min-h-screen bg-[#1E2235] text-[#D4D4D4] p-4 sm:p-3 font-sans">
       <div className="max-w-4xl mx-auto">
         {/* Heading */}
         <h1 className="text-2xl text-center font-extrabold mb-3 text-emerald-300 drop-shadow font-mono">
@@ -114,7 +117,7 @@ export default async function DashboardPage() {
 
         {/* Chapter Cards */}
         <div className="flex flex-col items-center gap-y-6 sm:p-0">
-          {chapters.map((chapter, idx) => {
+          {chapterDetails.map((chapter, idx) => {
             const moduleDetails = completionsMap[chapter.id] || [];
 
             // ✅ Figure out chapter status
@@ -124,10 +127,11 @@ export default async function DashboardPage() {
               chapterStatus = "completed";
             } else if (
               idx === 0 || // first chapter is always available
-              completedChapterIds.includes(chapters[idx - 1]?.id) // unlock if previous chapter is completed
+              completedChapterIds.includes(chapterDetails[idx - 1]?.id) // unlock if previous chapter is completed
             ) {
               chapterStatus = "current";
             }
+
             return (
               <ChapterCard
                 key={chapter.id}

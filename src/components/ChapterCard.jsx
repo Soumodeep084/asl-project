@@ -258,9 +258,10 @@ import {
 import { getChapterStatusIcon, getStatusClasses, getChapterId } from "@/lib/chapterHelper";
 import { FaPlay } from "react-icons/fa";
 
+
 const ChapterCard = ({ chapter, chapterStatus, moduleDetails }) => {
 
-    const totalModules = chapter.modules.length;
+    const totalModules = chapter.modulesCount;
     const completedModules = moduleDetails.length; // since it's an array of completions
     const progressPercent = totalModules > 0 ? (completedModules / totalModules) * 100 : 0;
 
@@ -278,7 +279,7 @@ const ChapterCard = ({ chapter, chapterStatus, moduleDetails }) => {
         <div className={cardClasses}>
             {/* CONTINUE badge for current chapter */}
             {chapterStatus === "current" && (
-                <span className="absolute -top-4 -right-2 sm:-right-2 z-20 animate-float px-2 py-1 select-none rounded-full text-[9px] sm:text-[10px] font-extrabold tracking-wider bg-amber-400/15 text-amber-300 border border-amber-400/50 shadow-sm backdrop-blur-[1px]">
+                <span className="absolute -top-4 -right-2 sm:-right-2 z-20 animate-float px-2 py-1 select-none rounded-full text-[12px] sm:text-[10px] font-extrabold tracking-wider bg-amber-400/15 text-amber-300 border border-amber-400/50 shadow-sm backdrop-blur-[1px]">
                     CONTINUE
                 </span>
             )}
@@ -306,12 +307,12 @@ const ChapterCard = ({ chapter, chapterStatus, moduleDetails }) => {
             </div>
 
             {/* Title */}
-            <p className="font-bold text-emerald-400 text-sm sm:text-base md:text-base leading-snug">
+            <p className="font-bold text-emerald-400 text-md sm:text-sm md:text-base leading-snug">
                 {chapter.title}
             </p>
 
             {/* Description */}
-            <p className="mt-1 text-[10px] sm:text-xs text-gray-300">{chapter.description}</p>
+            <p className="mt-1 md:text-[14px] sm:text-xs text-gray-300">{chapter.description}</p>
 
             {/* Progress Text */}
             <p className="text-[10px] sm:text-xs mt-1 mb-2 text-gray-400">
