@@ -17,7 +17,7 @@ export const chapter1 = {
                     title: "Let's Start Signing ASL",
                     description: "Are you ready to start your ASL journey?",
                     videos: [
-                        { label: "Hello Welcome, Come On Sign", url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt1/Hello_Welcome_ComeOnSign.mp4" }
+                        { label: "Hello Welcome, Come On , Let's Sign together", url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt1/Hello_Welcome_ComeOnSign.mp4" }
                     ]
                     // https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt1/Hello_Welcome_ComeOnSign.mp4
                 },
@@ -58,7 +58,7 @@ export const chapter1 = {
                     id: "1.2.2",
                     title: "Learn a new sign!",
                     videos: [{ label: "You", url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt1/you.mp4" }]
-                }
+                },
             ]
         },
         {

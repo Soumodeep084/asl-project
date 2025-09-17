@@ -21,11 +21,17 @@ const ModuleCard = ({ chapterId, module, moduleStatus }) => {
 
   const content = (
     <div className={cardClasses}>
+      {/* label */}
+      <p className="text-xs text-amber-400 mb-1 font-semibold">{module?.label}</p>
+
+      {/* Title */}
       <h2 className={`text-sm font-semibold mb-1 ${status === "current" ? "text-amber-400" : "text-emerald-400"}`}>
-        {module.title}
+        {module?.title}
       </h2>
+
+      {/* Description */}
       <p className="text-gray-400 text-xs leading-snug">
-        {module.description}
+        {module?.description}
       </p>
     </div>
   );

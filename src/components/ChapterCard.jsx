@@ -266,12 +266,12 @@ const ChapterCard = ({ chapter, chapterStatus, moduleDetails }) => {
     const progressPercent = totalModules > 0 ? (completedModules / totalModules) * 100 : 0;
 
     // Card classes with relative positioning for badge
-    const cardClasses = `relative w-full md:w-xl p-4 sm:p-5 rounded-lg shadow-md border transition duration-200
+    const cardClasses = `relative w-full md:w-xl p-4 sm:p-5 rounded-lg shadow-md border transition duration-200 shadow-xl
     ${chapterStatus === "current"
-            ? "bg-[#2A2F45] border-amber-400"
+            ? "bg-[#2A2F45] border-amber-400 shadow-amber-400/20"
             : chapterStatus === "locked"
-                ? "bg-[#1E2235] opacity-50 cursor-not-allowed"
-                : "bg-[#1E2235] border-emerald-400"
+                ? "bg-[#1E2235] opacity-50 cursor-not-allowed shadow-black/20"
+                : "bg-[#1E2235] border-emerald-400 shadow-emerald-400/20"
         }`;
 
 
@@ -312,7 +312,7 @@ const ChapterCard = ({ chapter, chapterStatus, moduleDetails }) => {
             </p>
 
             {/* Description */}
-            <p className="mt-1 md:text-[14px] sm:text-xs text-gray-300">{chapter.description}</p>
+            <p className="mt-1 text-sm text-gray-300">{chapter.description}</p>
 
             {/* Progress Text */}
             <p className="text-[10px] sm:text-xs mt-1 mb-2 text-gray-400">
@@ -321,7 +321,7 @@ const ChapterCard = ({ chapter, chapterStatus, moduleDetails }) => {
 
             {/* Progress Bar */}
             <div className="w-full bg-[#2B2B33] rounded-full h-1.5 sm:h-2">
-                <div className="h-1.5 sm:h-2 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 transition-all duration-300"
+                <div className={`h-1.5 sm:h-2 rounded-full bg-gradient-to-r ${chapterStatus === "completed" ? "from-emerald-400 to-emerald-500" : "from-amber-400 to-amber-500"} transition-all duration-300`}
                     style={{ width: `${progressPercent}%` }}
                 ></div>
             </div>

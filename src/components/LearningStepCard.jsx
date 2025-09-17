@@ -15,22 +15,22 @@ const StepContentCard = ({ step }) => {
     <div className="flex flex-col items-center w-full px-2 sm:px-4">
       {/* Step Title */}
       <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-emerald-400 text-center">
-        {step.title}
+        {step?.title}
       </h1>
 
       {/* Step Description */}
-      {step.description && (
-        <p className="text-gray-50 mb-4 sm:mb-6 text-xs sm:text-sm md:text-base text-center max-w-2xl">
-          {step.description}
+      {step?.description && (
+        <p className="text-gray-50 mb-2 sm:mb-4 text-xs sm:text-sm md:text-base text-center max-w-2xl">
+          {step?.description}
         </p>
       )}
 
       {/* Images */}
       <div
-        className={`flex flex-col sm:flex-row ${step.images?.length > 1 ? "gap-2 sm:gap-3" : ""
-          } mb-3 sm:mb-5 object-cover`}
+        className={`flex flex-col sm:flex-row ${step?.images?.length > 1 ? "gap-2 sm:gap-3" : ""
+          } mb-2 sm:mb-5 object-cover`}
       >
-        {step.images?.map((image, idx) => (
+        {step?.images?.map((image, idx) => (
           <div
             key={idx}
             className={`${step.images?.length > 1 ? "sm:w-1/2" : "w-full"
@@ -50,7 +50,7 @@ const StepContentCard = ({ step }) => {
       {/* Videos */}
       <div
         className={`flex flex-col sm:flex-row ${step.videos.length > 1 ? "gap-2 sm:gap-3" : ""
-          } mb-3 sm:mb-5 `}
+          } mb-2 sm:mb-5 `}
       >
         {step.videos.map((video, idx) => (
           <div
@@ -64,7 +64,7 @@ const StepContentCard = ({ step }) => {
               muted
               loop
               playsInline
-              className="max-w-xs rounded-lg shadow-lg"
+              className="max-w-xs p-2 rounded-2xl shadow-lg"
             />
             {video.label && (
               <p className="mt-2 text-gray-300 font-semibold text-xs sm:text-sm md:text-base text-center">
@@ -80,7 +80,7 @@ const StepContentCard = ({ step }) => {
         step.tables.map((table, idx) => (
           <div
             key={idx}
-            className="w-full max-w-full sm:max-w-2xl overflow-x-auto mb-4 mx-auto"
+            className="w-full max-w-full sm:max-w-2xl overflow-x-auto mb-1 mx-auto"
           >
             <h2 className="text-sm sm:text-base md:text-lg font-semibold text-emerald-400 mb-2 text-center">
               {table.title}

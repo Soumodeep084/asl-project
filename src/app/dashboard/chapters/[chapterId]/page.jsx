@@ -164,7 +164,6 @@ import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
 import { getStatusIcon, getStatusClasses, getChapterId } from "@/lib/chapterHelper.js";
 import { FaArrowLeftLong } from "react-icons/fa6";
-// import { chapters } from "@/data/chapters.js";
 import ModuleCard from "@/components/ModuleCard";
 import { getUserIdByClerkId } from "@/actions/UserActions";
 import { getModuleCompletionDetails } from "@/actions/moduleActions";
@@ -231,13 +230,14 @@ export default function ChapterPage({ params }) {
   return (
     <div className="min-h-screen bg-[#1E2235] text-[#F3F4F6] font-sans px-4 sm:px-6 lg:px-8">
       <div className="max-w-2xl mx-auto">
+
         {/* Header */}
-        <div className="flex items-center justify-evenly py-4 ">
+        <div className="flex items-center justify-evenly py-4">
           <Link href="/dashboard" className="hover:text-emerald-400 transition">
             <FaArrowLeftLong className="text-white text-2xl" />
           </Link>
 
-          <div className="flex flex-col text-center">
+          <div className="flex flex-col text-center ">
             <h2 className="text-xs sm:text-sm font-semibold text-gray-400 uppercase tracking-widest text-center">
               CHAPTER {chapter.id ? getChapterId(chapter.id) : ""}
             </h2>
@@ -252,6 +252,7 @@ export default function ChapterPage({ params }) {
 
         {/* Module List */}
         <div className="relative pl-10 sm:pl-20">
+
           {/* Vertical line */}
           <div className="absolute top-8 bottom-8 w-1 bg-[#2A2F45]" />
 
@@ -270,7 +271,7 @@ export default function ChapterPage({ params }) {
                   {moduleStatus[module.id] === "current" && (
                     <>
                       <span
-                        className="absolute -top-9 sm:-top-9 -right-3 animate-float px-3 py-2 select-none rounded-full text-[10px] sm:text-xs font-extrabold tracking-wider
+                        className="absolute -top-9 sm:-top-9 -right-5 animate-float px-3 py-1 select-none rounded-full text-[10px] sm:text-xs font-extrabold tracking-wider
                                    bg-amber-400/15 text-amber-300 border border-amber-400/50 shadow-sm backdrop-blur-[1px]"
                       >
                         CONTINUE
