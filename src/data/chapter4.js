@@ -17,12 +17,12 @@ export const chapter4 = {
                         {
                             type: "sender",
                             label: "Hello Welcome",
-                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/hello-welcome.mp4"
+                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue1/hello-welcome.mp4"
                         },
                         {
                             type: "receiver",
                             label: "Hello How You ? ",
-                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/hello-how-you.mp4"
+                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue1/hello-how-you.mp4"
                         }
                     ],
                     testing: {
@@ -41,17 +41,17 @@ export const chapter4 = {
                         {
                             type: "sender",
                             label: "Fine You ? ",
-                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/fine-you.mp4"
+                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue1/fine-you.mp4"
                         },
                         {
                             type: "receiver",
                             label: "Fine, You Deaf ? ",
-                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/fine-you-deaf.mp4"
+                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue1/fine-you-deaf.mp4"
                         },
                         {
                             type: "sender",
                             label: "No Me Hearing, You Deaf ? ",
-                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/no-me-hearing-you-deaf.mp4"
+                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue1/no-me-hearing-you-deaf.mp4"
                         }
                     ],
                     testing: {
@@ -69,17 +69,17 @@ export const chapter4 = {
                         {
                             type: "reciever",
                             label: "Yes Me Deaf",
-                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/yes-me-deaf.mp4"
+                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue1/yes-me-deaf.mp4"
                         },
                         {
                             type: "sender",
                             label: "Ok. Bye",
-                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/ok-bye.mp4"
+                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue1/ok-bye.mp4"
                         },
                         {
                             type: "receiver",
                             label: "Bye",
-                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/bye.mp4"
+                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue1/bye.mp4"
                         }
                     ],
                     testing: {
@@ -103,12 +103,12 @@ export const chapter4 = {
                         {
                             type: "sender",
                             label: "Hello",
-                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue1/hello.mp4"
+                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/hello.mp4"
                         },
                         {
                             type: "receiver",
                             label: "don't UNDERSTAND",
-                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue1/dont-understand.mp4"
+                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/dont-understand.mp4"
                         }
                     ],
                     testing: {
@@ -126,7 +126,7 @@ export const chapter4 = {
                         {
                             type: "sender",
                             label: "dont- Understand Hello",
-                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue1/dont-understand-hello.mp4"
+                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/dont-understand-hello.mp4"
                         },
                     ],
                     testing: {
@@ -142,15 +142,15 @@ export const chapter4 = {
                     videos: [
                         {
                             type: "reciever",
-                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue1/no-understand.mp4"
+                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/no-understand.mp4"
                         },
                         {
                             type: "sender",
-                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue1/slow-hello.mp4"
+                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/slow-hello.mp4"
                         },
                         {
                             type: "receiver",
-                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue1/yes-understood.mp4"
+                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/yes-understood.mp4"
                         }
                     ],
                     suggestions: [
