@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
 
-const ExitLearning = () => {
+const ExitLearning = ({ chapterId }) => {
     const router = useRouter();
     return (
         <Drawer>

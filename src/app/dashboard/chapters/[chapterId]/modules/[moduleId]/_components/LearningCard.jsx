@@ -74,7 +74,7 @@ const LearningCard = ({ module, user, chapter }) => {
 
             <div className="mt-6 flex justify-center gap-4 cursor-pointer">
                 {/* Exit Button (outlined, subtle) */}
-                <ExitLearning />
+                <ExitLearning chapterId={chapter.id} />
 
                 {/* Primary Next/Finish Button */}
                 <Button className="bg-amber-400 text-[#1E2235] hover:bg-amber-500 hover:text-white font-semibold cursor-pointer" onClick={handleNext} >

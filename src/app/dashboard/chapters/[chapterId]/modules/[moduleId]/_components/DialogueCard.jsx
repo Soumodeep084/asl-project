@@ -74,7 +74,7 @@ const DialogueCard = ({ module, user, chapter }) => {
         ))}
 
         <div>
-          <ExitLearning />
+          <ExitLearning chapterId={chapter.id} />
         </div>
       </div>
     </div>
