@@ -27,7 +27,7 @@ export const chapter4 = {
                     ],
                     testing: {
                         type: "mcq",
-                        title: "Select correct option",
+                        title: "Select the correct option",
                         Question: "_____ How You ? ",
                         options: [{ id: "Hello", label: "Hello" }, { id: "Welcome", label: "Welcome" }, { id: "Deaf", label: "Deaf" }],
                         answer: "Hello",
@@ -56,7 +56,7 @@ export const chapter4 = {
                     ],
                     testing: {
                         type: "mcq",
-                        title: "Select correct option and fill the gap",
+                        title: "Select the correct option and fill the gap",
                         Question: "No Me Hearing, You ____ ? ",
                         options: [{ id: "Deaf", label: "Deaf" }, { id: "Hearing", label: "Hearing" }, { id: "Fine", label: "Fine" }],
                         answer: "Deaf",
@@ -84,9 +84,11 @@ export const chapter4 = {
                     ],
                     testing: {
                         type: "mcq",
-                        title: "Select correct option",
+                        title: "Select the correct option",
                         Question: "What's the last sign ?  ",
                         options: [{ id: "Ok", label: "Ok" }, { id: "Bye", label: "Bye" }, { id: "Fine", label: "Fine" }, { id: "Welcome", label: "Welcome" }],
+                        answer: "Bye",
+                        explanation: "Correct answer is BYE"
                     }
                 }
             ]
@@ -103,21 +105,21 @@ export const chapter4 = {
                         {
                             type: "sender",
                             label: "Hello",
-                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/hello.mp4"
+                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/hello-hello.mp4"
                         },
                         {
                             type: "receiver",
                             label: "don't UNDERSTAND",
-                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/dont-understand.mp4"
+                            url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/hello-dont-understand.mp4"
                         }
                     ],
                     testing: {
                         type: "mcq",
                         title: "Select correct option",
                         Question: "Did she understood ? ",
-                        options: [{ id: "yes", label: "Yes" }, { id: "no", label: "No" }],
-                        answer: "no",
-                        explanation: "No , She didn't understand"
+                        options: [{ id: "Yes", label: "Yes" }, { id: "No", label: "No" }],
+                        answer: "No",
+                        explanation: "No , she didn't understand"
                     }
                 },
                 {
@@ -130,11 +132,12 @@ export const chapter4 = {
                         },
                     ],
                     testing: {
-                        type: "fill-gap",
-                        title: "Select correct option and fill the gap",
-                        Question: "Dont Understand ____",
+                        type: "mcq",
+                        title: "Select the correct option",
+                        Question: "Don't Understand _____ ?",
                         options: [{ id: "Hello", label: "Hello" }, { id: "Happy", label: "Happy" }, { id: "Please", label: "Please" }],
                         answer: "Hello",
+                        explanation: "Correct answer is DON'T UNDERSTAND HELLO ?"
                     }
                 },
                 {
@@ -153,10 +156,13 @@ export const chapter4 = {
                             url: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt4/dialogue2/yes-understood.mp4"
                         }
                     ],
-                    suggestions: [
-                        "Change your facial expression to switch from don't-understand to understand.",
-                        "Practice the dialogue a few times to get comfortable with the signs and the flow of the conversation."
-                    ]
+                    suggestions: {
+                        type: "suggestions",
+                        messages: [
+                            "Change your facial expression to switch from don't-understand to understand.",
+                            "Practice the dialogue a few times to get comfortable with the signs and the flow of the conversation."
+                        ]
+                    }
                 }
             ]
         },
