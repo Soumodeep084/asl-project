@@ -37,6 +37,7 @@ const LearningCard = ({ module, user, chapter }) => {
             if (success) {
                 // ✅ Extra check: if this is the last module in the chapter
                 toast.success(`🎉 You completed the Module : ${module.title}`);
+                toast.success(`🎉 You earned 10 Silent Coins after completing this module`);
                 const lastModuleId = chapter.modules[chapter.modules.length - 1].id;
                 if (module.id === lastModuleId) {
                     await chapterCompleted(userId, chapterId);

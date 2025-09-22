@@ -169,10 +169,110 @@ export const chapter4 = {
         {
             id: "4.3",
             label: "MODULE 3",
-            title: "Question Formation",
-            type: "learning",
-            description: "Learn how to form questions in ASL",
+            title: "Practice Test - 3",
+            type: "test",
+            points: 20,
+            description: "Review Some of the Signs you have learned so far in the previous chapter.",
+            steps: [
+                {
+                    // Video Database : chpt1/deaf.mp4
+                    id: "3.2.1",
+                    title: "Write down the shown sign!",
+                    type: "input",
+                    videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt1/deaf.mp4",
+                    videoLabel: "DEAF",
+                    answer: "DEAF"
+                },
+                {
+                    // Video Database : chpt1/You.mp4
+                    id: "3.2.2",
+                    title: "Write down the shown sign!",
+                    type: "input",
+                    videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt1/you.mp4",
+                    videoLabel: "YOU",
+                    answer: "YOU"
+                },
+                {
+                    // Video Database : chpt1/You deaf.mp4
+                    id: "3.2.3",
+                    title: "Fill the gap with the right word!",
+                    type: "mcq",
+                    videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt3/test1/you-deaf.mp4",
+                    videoLabel: "YOU DEAF",
+                    Question: "You ____ ?",
+                    options: [{ id: "HEARING", label: "HEARING" }, { id: "DEAF", label: "DEAF" }, { id: "FINE", label: "FINE" }],
+                    answer: "DEAF",
+                },
+                {
+                    // Video Database : chpt1/hearing.mp4
+                    id: "3.2.4",
+                    title: "Write down the shown sign!",
+                    type: "input",
+                    videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt1/hearing.mp4",
+                    videoLabel: "HEARING",
+                    answer: "HEARING"
+                },
+                {
+                    // Video Database : chpt1/me.mp4
+                    id: "3.2.5",
+                    title: "Write down the shown sign!",
+                    type: "input",
+                    videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt1/me.mp4",
+                    videoLabel: "ME",
+                    answer: "ME"
+                },
+                {
+                    // Video Database : chpt2/tree.mp4
+                    id: "3.2.6",
+                    title: "Write down the shown sign!",
+                    type: "input",
+                    videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt2/tree.mp4",
+                    videoLabel: "TREE",
+                    answer: "TREE"
+                },
+                {
+                    // Video Database : chpt3/test1/hello-you-deaf.mp4
+                    id: "3.2.7",
+                    title: "Fill the gap with the right word!",
+                    type: "mcq",
+                    videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt3/test1/hello-you-deaf.mp4",
+                    videoLabel: "HELLO YOU DEAF",
+                    Question: "_____ You Deaf ?",
+                    options: [{ id: "HELLO", label: "HELLO" }, { id: "ME", label: "ME" }, { id: "HEARING", label: "HEARING" }],
+                    answer: "HELLO",
+                },
+                {
+                    //  Video Database : chpt1/yes.mp4
+                    id: "3.2.8",
+                    title: "Write down the shown sign!",
+                    type: "input",
+                    videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt1/yes.mp4",
+                    videoLabel: "YES",
+                    answer: "YES"
+                },
+                {
+                    // Video Database : chpt1/no.mp4
+                    id: "3.2.9",
+                    title: "Write down the shown sign!",
+                    type: "input",
+                    videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt1/no.mp4",
+                    videoLabel: "NO",
+                    answer: "NO"
+                },
+                {
+                    // Video Database : chpt1/no.mp4 but in mcq
+                    id: "3.2.10",
+                    type: "mcq",
+                    title: "True or False: I always have to use my left hand for signing.",
+                    videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt1/no.mp4",
+                    videoLabel: "NO",
+                    options: [{ id: "TRUE", label: "TRUE" }, { id: "FALSE", label: "FALSE" }],
+                    answer: "FALSE",
+                    explanation: "Depending on your preference and comfort, you can use either hand for signing."
+                }
+            ]
         }
+        
     ]
 
 }
