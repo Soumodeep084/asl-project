@@ -49,3 +49,16 @@ export async function getChapterCompletionDetails(userId) {
         return [];
     }
 }
+
+
+export async function getTotalChaptersCompleted(userId) {
+    try {
+        const count = await db.chapterCompletion.count({
+            where: { userId },
+        });
+        return count;
+    } catch (error) {
+        console.error("Error counting completed chapters:", error);
+        return 0;
+    }
+}

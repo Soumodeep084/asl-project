@@ -68,7 +68,7 @@
 
 // dashboard/page.jsx
 import { chapterMap } from "@/data/chapterDetails.js";
-import ChapterCard from "@/components/ChapterCard.jsx";
+import ChapterCard from "@/components/Cards/ChapterCard.jsx";
 import { getModuleCompletionDetails } from "@/actions/moduleActions";
 import { currentUser } from "@clerk/nextjs/server";
 import { getUserIdByClerkId } from "@/actions/UserActions";

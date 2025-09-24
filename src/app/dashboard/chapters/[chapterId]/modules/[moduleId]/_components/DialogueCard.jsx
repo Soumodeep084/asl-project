@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { moduleCompleted } from "@/actions/moduleActions.js";
 import { chapterCompleted } from "@/actions/chapterActions.js";
 import { getUserIdByClerkId } from "@/actions/UserActions.js";
-import DialogueStepCard from "@/components/DialogueStepCard.jsx";
+import DialogueStepCard from "@/components/Modules/DialogueStepCard.jsx";
 import { toast } from "sonner";
 import { LoaderCircle } from "lucide-react";
 import ExitLearning from "@/components/ExitLearning";

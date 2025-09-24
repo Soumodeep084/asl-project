@@ -164,7 +164,7 @@ import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
 import { getStatusIcon, getStatusClasses, getChapterId } from "@/lib/chapterHelper.js";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import ModuleCard from "@/components/ModuleCard";
+import ModuleCard from "@/components/Cards/ModuleCard";
 import { getUserIdByClerkId } from "@/actions/UserActions";
 import { getModuleCompletionDetails } from "@/actions/moduleActions";
 import { FaArrowRight } from "react-icons/fa";

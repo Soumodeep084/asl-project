@@ -18,3 +18,4 @@ export async function getUserIdByClerkId(clerkUserId) {
     throw new Error("Could not fetch user ID");
   }
 }
+

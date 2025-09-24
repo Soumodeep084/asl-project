@@ -53,3 +53,31 @@ export async function moduleCompleted(userId, chapterId, moduleId, points = 10) 
     return false;
   }
 }
+
+export async function getTotalPoints(userId) {
+  try {
+    const result = await db.moduleCompletion.aggregate({
+      where: { userId },
+      _sum: {
+        points: true,
+      },
+    });
+    return result._sum.points || 0;
+  } catch (error) {
+    console.error("Error fetching total points:", error);
+    throw new Error("Could not fetch total points");
+  }
+}
+
+export async function getCompletedModulesCount(userId) {
+  try {
+    const count = await db.moduleCompletion.count({
+      where: { userId },
+    });
+    return count;
+  } catch (error) {
+    console.error("Error fetching completed modules count:", error);
+    throw new Error("Could not fetch completed modules count");
+  }
+}
+

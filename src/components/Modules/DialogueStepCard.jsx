@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import VideoBubble from "./VideoBubble";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { Lightbulb, HelpCircle } from "lucide-react";
 
 const DialogueStepCard = ({ step, onStepComplete }) => {

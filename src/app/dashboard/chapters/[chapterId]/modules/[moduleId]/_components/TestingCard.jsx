@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { moduleCompleted } from "@/actions/moduleActions.js";
 import { chapterCompleted } from "@/actions/chapterActions.js";
 import { getUserIdByClerkId } from "@/actions/UserActions.js";
-import TestingStepCard from "@/components/TestingStepCard.jsx";
+import TestingStepCard from "@/components/Modules/TestingStepCard.jsx";
 import { toast } from "sonner";
 
 const TestingCard = ({ module, user, chapter }) => {

@@ -20,6 +20,7 @@ model User {
 
   completions  ModuleCompletion[]
   chapterCompletions ChapterCompletion[]
+  transactions       Transaction[]
 
   @@map("users")
 }
@@ -48,4 +49,18 @@ model ChapterCompletion{
 
   @@unique([userId, chapterId])
   @@map("chapter_completions")
+}
+
+model Transaction{
+  id            String    @id @default(uuid())
+  userId        String    @map("user_id")
+  amount        Float
+  method        String
+  startDate      DateTime
+  endDate        DateTime
+  createdAt     DateTime  @default(now()) @map("created_at")
+
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("transactions")
 }
