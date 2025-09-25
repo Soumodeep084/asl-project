@@ -30,13 +30,13 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="bg-background w-full">
       {/* Background header */}
-      <div className="relative bg-[url('/asset/bgwaves.png')] bg-cover bg-center py-24">
-        <h2 className="text-5xl xl:text-6xl font-header font-bold text-foreground text-center">
+      <div className="relative bg-[url('/asset/bgwaves.png')] bg-cover bg-center py-16 sm:py-20 md:py-24">
+        <h2 className="text-4xl sm:text-5xl xl:text-6xl font-header font-bold text-foreground text-center px-4">
           Testimonials
         </h2>
 
         {/* Testimonials grid */}
-        <div className="grid gap-8 px-6 sm:grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto mt-24">
+        <div className="grid gap-6 sm:gap-8 px-4 sm:px-6 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto mt-10 sm:mt-16 md:mt-20">
           {testimonialData.map((t, idx) => (
             <div
               key={idx}
@@ -62,7 +62,7 @@ const Testimonials = () => {
                   </svg>
                 ))}
               </div>
-              <p className="text-gray-100 text-sm mb-4 italic">{t.text}</p>
+              <p className="text-gray-100 text-sm sm:text-base mb-4 italic">{t.text}</p>
               <p className="font-semibold text-accent1">{t.name}</p>
             </div>
           ))}
@@ -70,17 +70,17 @@ const Testimonials = () => {
       </div>
 
       {/* Call-to-action */}
-      <div className="mt-20 min-h-[80vh] flex flex-col items-center justify-center bg-gradient-to-r from-[#063731] to-[#3DDC97] text-white py-20 px-4">
-        <h3 className="text-3xl font-description mb-4 text-center">
+      <div className="mt-16 sm:mt-20 min-h-[60vh] md:min-h-[70vh] flex flex-col items-center justify-center bg-gradient-to-r from-[#063731] to-[#3DDC97] text-white py-14 sm:py-20 px-4">
+        <h3 className="text-2xl sm:text-3xl font-description mb-4 text-center">
           Let the learning begin!
         </h3>
-        <p className="text-4xl xl:text-6xl font-extrabold font-header text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-[#0D1B2A] via-[#063731] to-white animate-[textShine_5s_linear_infinite]">
+        <p className="text-3xl sm:text-4xl xl:text-6xl font-extrabold font-header text-center mb-8 sm:mb-12 bg-clip-text text-transparent bg-gradient-to-r from-[#0D1B2A] via-[#063731] to-white animate-[textShine_5s_linear_infinite]">
           Master Sign Language — take one sign at a time.
         </p>
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-sm sm:max-w-md px-2">
           <SignedOut>
             <SignInButton mode="modal">
-              <button className="w-full py-4 rounded-xl text-3xl font-header bg-gradient-to-r from-[#0D1B2A] to-[#063731] hover:opacity-90 transition">
+              <button className="w-full py-3 sm:py-4 rounded-xl text-2xl sm:text-3xl font-header bg-gradient-to-r from-[#0D1B2A] to-[#063731] hover:opacity-90 transition">
                 Get Started
               </button>
             </SignInButton>
@@ -89,14 +89,14 @@ const Testimonials = () => {
       </div>
 
       {/* Footer */}
-      <footer className="mt-20 w-full flex flex-col items-center justify-center text-sm text-red-50 bg-gradient-to-r from-[#063731] to-[#3DDC97] py-8">
-        <p>&copy; {new Date().getFullYear()} SilentTalk. All rights reserved.</p>
-        <div className="flex space-x-4 mt-2">
+      <footer className="mt-16 sm:mt-20 w-full flex flex-col items-center justify-center text-xs sm:text-sm text-red-50 bg-gradient-to-r from-[#063731] to-[#3DDC97] py-6 sm:py-8 px-4">
+        <p className="text-center">&copy; {new Date().getFullYear()} SilentTalk. All rights reserved.</p>
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-2">
           <a href="/privacy" className="hover:underline">Privacy Policy</a>
           <a href="/terms" className="hover:underline">Terms of Service</a>
           <a href="/contact" className="hover:underline">Contact</a>
         </div>
-        <p className="mt-2 text-xs">Made with ❤️ by SilentTalk</p>
+        <p className="mt-2 text-[10px] sm:text-xs">Made with ❤️ by SilentTalk</p>
       </footer>
     </section>
   );

@@ -31,9 +31,8 @@ const TestingCard = ({ module, user, chapter }) => {
     try {
       const clerkUserId = user.id;
       const userId = await getUserIdByClerkId(clerkUserId);
-      const points = correctCount * 2; // 2 pts per correct answer
 
-      await moduleCompleted(userId, chapter.id, module.id, points);
+      await moduleCompleted(userId, chapter.id, module.id);
 
       setTimeout(async () => {
         const lastModuleId = chapter.modules[chapter.modules.length - 1].id;

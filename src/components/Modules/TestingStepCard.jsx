@@ -17,27 +17,38 @@ const TestingStepCard = ({ step, onStepComplete, onSetCorrectCount, onSetWrongCo
   const handleCheckAnswer = () => {
     setChecked(true);
 
+    // Snapshot current values to avoid stale state after resets
+    const currInput = input.trim().toLowerCase();
+    const currAnswer = (step?.answer || "").toLowerCase();
+    const currSelected = selectedOption;
+
+    let isCorrect = false;
     if (step?.type === "input") {
-      if (input.trim().toLowerCase() === step?.answer.toLowerCase()) {
-        onSetCorrectCount(c => c + 1);
-      } else {
-        onSetWrongCount(w => w + 1);
-      }
+      isCorrect = currInput === currAnswer;
     } else if (step?.type === "mcq") {
-      if (selectedOption === step?.answer) {
-        onSetCorrectCount(c => c + 1);
-      } else {
-        onSetWrongCount(w => w + 1);
-      }
+      isCorrect = currSelected === step?.answer;
     }
 
+    if (isCorrect) {
+      onSetCorrectCount(c => c + 1);
+    } else {
+      onSetWrongCount(w => w + 1);
+    }
+
+    // Delay only for showing feedback, but use the snapshotted result
     setTimeout(() => {
       setChecked(false);
+      // Call onStepComplete BEFORE clearing local state (or use snapshots)
+      onStepComplete({
+        correct: isCorrect ? 1 : 0,
+        wrong: isCorrect ? 0 : 1,
+      });
+      // Now clear UI state safely
       setSelectedOption("");
       setInput("");
-      onStepComplete({ correct: step?.type === "input" ? (input.trim().toLowerCase() === step?.answer.toLowerCase() ? 1 : 0) : (selectedOption === step?.answer ? 1 : 0), wrong: step?.type === "input" ? (input.trim().toLowerCase() === step?.answer.toLowerCase() ? 0 : 1) : (selectedOption === step?.answer ? 0 : 1) });
     }, 2000);
   };
+
 
   const optionGridClass = (count) => `grid grid-cols-${count > 2 ? 2 : 1} md:grid-cols-${count} gap-3`;
 

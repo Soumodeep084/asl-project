@@ -168,27 +168,27 @@ export default function HomePageWrapper() {
       {/* Hero Section */}
       <div
         id="home"
-        className="relative w-full min-h-[1000px] bg-[url(/asset/bgwaves.png)] bg-cover bg-center"
+        className="relative w-full min-h-[70vh] md:min-h-[80vh] xl:min-h-[900px] bg-[url(/asset/bgwaves.png)] bg-cover bg-center"
       >
         {/* Overlay for better readability */}
         <div className="absolute inset-0 bg-black/30"></div>
 
-        <div className="relative container mx-auto h-full">
-          <div className="flex flex-col-reverse xl:flex-row items-center justify-between pt-16 xl:pb-24">
+        <div className="relative container mx-auto h-full px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col-reverse xl:flex-row items-center justify-between gap-8 md:gap-12 py-14 md:py-20 xl:py-24">
             
             {/* Text Content */}
-            <div className="text-center xl:text-left z-10">
+            <div className="text-center xl:text-left z-10 max-w-2xl">
               <h1 className="text-4xl sm:text-5xl xl:text-6xl font-bold capitalize text-white leading-tight">
                 Learn <span className="text-accent1">ASL</span>
                 <br />
                 The fun way
               </h1>
-              <h3 className="text-lg sm:text-xl text-gray-300 pt-4 max-w-[500px] xl:max-w-[700px]">
+              <h3 className="text-base sm:text-lg md:text-xl text-gray-300 pt-4 max-w-[500px] xl:max-w-[700px] mx-auto xl:mx-0">
                 Master sign language step by step. Learn, practice, and confidently grow your ASL skills through an engaging and natural learning experience.
               </h3>
 
               {/* Buttons */}
-              <div className="pt-8 flex justify-center xl:justify-start gap-4">
+              <div className="pt-8 flex flex-wrap justify-center xl:justify-start gap-4">
                 <SignedOut>
                   <SignInButton mode="modal">
                     <button className="px-6 py-3 rounded-3xl font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:from-blue-500 hover:to-cyan-500 transition">

@@ -76,7 +76,6 @@ export const chapter3 = {
             label: "MODULE 2",
             title: "Practice Test 1",
             type: "test",
-            points: 20,
             description: "Review Some of the Signs you have learned so far in the previous chapter.",
             steps: [
                 {
@@ -247,7 +246,6 @@ export const chapter3 = {
             label: "MODULE 4",
             title: "Practice Test 2",
             type: "test",
-            points: 20,
             description: "Review some previous chapters signs.",
             steps: [
                 {
