@@ -259,7 +259,7 @@ import { getChapterStatusIcon, getStatusClasses, getChapterId } from "@/lib/chap
 import { FaPlay } from "react-icons/fa";
 
 
-const ChapterCard = ({ chapter, chapterStatus, moduleDetails }) => {
+const ChapterCard = ({ chapter, chapterStatus, moduleDetails , hoverMsg }) => {
 
     const totalModules = chapter.modulesCount;
     const completedModules = moduleDetails.length; // since it's an array of completions
@@ -337,7 +337,7 @@ const ChapterCard = ({ chapter, chapterStatus, moduleDetails }) => {
                         <div>{content}</div>
                     </TooltipTrigger>
                     <TooltipContent side="top" className="text-sm bg-amber-300 text-black p-2 rounded shadow-lg">
-                        Complete the previous chapters to unlock this.
+                        {hoverMsg}
                     </TooltipContent>
                 </Tooltip>
             </TooltipProvider>

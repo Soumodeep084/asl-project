@@ -1,24 +1,52 @@
 "use server";
 
+import Stripe from "stripe";
 import { db } from "@/lib/prisma";
 
-export async function recordTransaction(userId, amount, method, startDate, endDate) {
-    try {
-        const transaction = await db.transaction.create({
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+export async function confirmPayment(sessionId, clerkId) {
+    // Get internal user
+    const internalUser = await db.user.findUnique({ where: { clerkId } });
+    if (!internalUser) return null;
+
+    // Fetch Stripe session
+    const session = await stripe.checkout.sessions.retrieve(sessionId, { expand: ["line_items"] });
+    const paid = session.payment_status === "paid" || session.status === "complete";
+
+    // Check if transaction exists
+    let transaction = await db.transaction.findFirst({ where: { stripeSession: sessionId } });
+
+    // If paid and no transaction, record it
+    if (paid && !transaction) {
+        const plan = session.metadata.plan || "unknown";
+        const amountMinor = session.amount_total || 0;
+        let endDate = new Date();
+        if (plan === "monthly") endDate.setMonth(endDate.getMonth() + 1);
+        else if (plan === "quarterly") endDate.setMonth(endDate.getMonth() + 3);
+        else if (plan === "yearly") endDate.setFullYear(endDate.getFullYear() + 1);
+
+        transaction = await db.transaction.create({
             data: {
-                userId,
-                amount,
-                method,
-                startDate,
+                userId: internalUser.id,
+                amount: amountMinor / 100,
+                currency: session.currency.toUpperCase(),
+                stripeSession: sessionId,
+                plan,
+                startDate: new Date(),
                 endDate,
+                status: "success",
             },
         });
-        return transaction;
-    } catch (error) {
-        console.error("Error recording transaction:", error);
-        throw new Error("Transaction recording failed");
     }
+
+    return {
+        transaction,
+        isConfirmed: paid,
+    };
 }
+
+// Required
 export async function getUserTransactions(userId) {
     try {
         const transactions = await db.transaction.findMany({
@@ -31,30 +59,34 @@ export async function getUserTransactions(userId) {
     }
 }
 
-
-export async function getLatestTransaction(userId) {
-    try {
-        const transaction = await db.transaction.findFirst({
-            where: { userId },
-            orderBy: { createdAt: 'desc' },
-        });
-        return transaction;
-    } catch (error) {
-        console.error("Error fetching latest transaction:", error);
-        throw new Error("Could not fetch latest transaction");
-    }
+export async function getActiveSubscription(userId) {
+    const now = new Date();
+    const subscription = await db.transaction.findFirst({
+        where: {
+            userId,
+            status: "success",
+            endDate: { gte: now },
+        },
+        orderBy: { endDate: "desc" },
+    });
+    return subscription;
 }
+
+// Latest transaction (success or otherwise)
+export async function getLatestTransaction(userId) {
+    return await db.transaction.findFirst({
+        where: { userId },
+        orderBy: { createdAt: 'desc' },
+    });
+}
+
 export async function isSubscriptionActive(userId) {
-    try {
-        const latestTransaction = await getLatestTransaction(userId);
-        if (!latestTransaction) return false;
-        const currentDate = new Date();
-        const subscriptionEndDate = new Date(latestTransaction.endDate);
-        return subscriptionEndDate > currentDate;
-    } catch (error) {
-        console.error("Error checking subscription status:", error);
-        throw new Error("Could not check subscription status");
-    }
+    const now = new Date();
+    const active = await db.transaction.findFirst({
+        where: { userId, status: 'success', endDate: { gte: now } },
+        orderBy: { endDate: 'desc' },
+    });
+    return !!active;
 }
 
 export async function getSubscriptionDetails(userId) {

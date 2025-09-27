@@ -232,13 +232,13 @@ const ClientNavbar = () => {
     return (
         <>
             {/* Mobile Navbar */}
-            <div className="fixed bottom-0 left-0 right-0 sm:hidden bg-[#1E2235]/90 backdrop-blur-md border-t border-gray-700 z-50">
+            <div className="fixed bottom-0 left-0 right-0 sm:hidden bg-[#1E2235]/90 backdrop-blur-md border-t border-gray-700 z-50 px-10">
                 <ul className="flex justify-around items-center h-16 text-sm text-white">
                     <SignedIn>
                         <li>
                             <Link href="/dashboard">
                                 <div
-                                    className={`flex flex-col items-center ${pathname === "/dashboard"
+                                    className={`text-xs flex flex-col items-center ${pathname === "/dashboard"
                                         ? "text-cyan-400 font-bold"
                                         : "text-white/60"
                                         }`}
@@ -251,7 +251,7 @@ const ClientNavbar = () => {
                         <li>
                             <Link href="/dictionary">
                                 <div
-                                    className={`flex flex-col items-center ${pathname === "/dictionary"
+                                    className={`text-xs flex flex-col items-center ${pathname === "/dictionary"
                                         ? "text-cyan-400 font-bold"
                                         : "text-white/60"
                                         }`}
@@ -265,7 +265,7 @@ const ClientNavbar = () => {
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <Button size="sm" variant="asl" className="flex flex-col items-center">
-                                        <MdSettings size={24} />
+                                        <MdSettings size={26} />
                                         <span className="text-xs">Settings</span>
                                     </Button>
                                 </DropdownMenuTrigger>
@@ -277,12 +277,15 @@ const ClientNavbar = () => {
                             </DropdownMenu>
                         </li>
                         <li>
-                            <UserButton />
+                            <div className="text-xs flex flex-col items-center">
+                                <UserButton />
+                                <span>Profile</span>
+                            </div>
                         </li>
                     </SignedIn>
                 </ul>
             </div>
-            
+
             {/* Mobile Auth Buttons */}
             <div className="fixed top-0 left-0 right-0 sm:hidden bg-[#1E2235]/90 backdrop-blur-md border-t border-gray-700 z-50 flex justify-evenly items-center h-16">
                 {/* Logo */}
@@ -310,7 +313,7 @@ const ClientNavbar = () => {
                 <div className="text-cyan-400 font-bold text-xl">SilentTalk</div>
 
                 {/* Links */}
-                <ul className="flex gap-7 items-center text-white">
+                <ul className="flex gap-8 items-center text-white px-1">
                     <SignedIn>
                         <li>
                             <Link
@@ -353,7 +356,10 @@ const ClientNavbar = () => {
                             </DropdownMenu>
                         </li>
                         <li>
-                            <UserButton />
+                            <div className="text-sm font-semibold flex items-center gap-1">
+                                <UserButton />
+                                <span>Profile</span>
+                            </div>
                         </li>
                     </SignedIn>
 

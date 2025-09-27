@@ -2,7 +2,7 @@
 
 datasource db {
   provider  = "postgresql"
-  url       = env("DATABASE_URL") 
+  url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
 
@@ -11,14 +11,14 @@ generator client {
 }
 
 model User {
-  id           String              @id @default(uuid())
-  clerkId      String              @unique 
-  name         String?
-  email        String?             @unique
-  createdAt    DateTime            @default(now()) 
-  updatedAt    DateTime            @updatedAt 
+  id        String   @id @default(uuid())
+  clerkId   String   @unique
+  name      String?
+  email     String?  @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  completions  ModuleCompletion[]
+  completions        ModuleCompletion[]
   chapterCompletions ChapterCompletion[]
   transactions       Transaction[]
 
@@ -26,41 +26,44 @@ model User {
 }
 
 model ModuleCompletion {
-  id           String    @id @default(uuid())
-  userId       String    @map("user_id")   // changed to String ✅
-  chapterId    String    @map("chapter_id")
-  moduleId     String    @map("module_id")
-  points       Int       @default(0)
-  completedAt  DateTime  @default(now()) @map("completed_at")
+  id          String   @id @default(uuid())
+  userId      String   @map("user_id") // changed to String ✅
+  chapterId   String   @map("chapter_id")
+  moduleId    String   @map("module_id")
+  points      Int      @default(0)
+  completedAt DateTime @default(now()) @map("completed_at")
 
-  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, chapterId, moduleId])
   @@map("module_completions")
 }
 
-model ChapterCompletion{
-  id           String    @id @default(uuid())
-  userId       String    @map("user_id")   // changed to String ✅
-  chapterId    String    @map("chapter_id")
-  completedAt  DateTime  @default(now()) @map("completed_at")
+model ChapterCompletion {
+  id          String   @id @default(uuid())
+  userId      String   @map("user_id") // changed to String ✅
+  chapterId   String   @map("chapter_id")
+  completedAt DateTime @default(now()) @map("completed_at")
 
-  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, chapterId])
   @@map("chapter_completions")
 }
 
-model Transaction{
+model Transaction {
   id            String    @id @default(uuid())
-  userId        String    @map("user_id")
-  amount        Float
-  method        String
-  startDate      DateTime
-  endDate        DateTime
-  createdAt     DateTime  @default(now()) @map("created_at")
-
+  userId        String
+  plan          String
+  currency      String
+  amount        Int
+  status        String // pending | success | failed
+  stripeSession String    @unique
+  startDate     DateTime? // nullable until payment confirmed
+  endDate       DateTime? // nullable until payment confirmed
+  createdAt     DateTime  @default(now())
   user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
+  @@index([userId])
   @@map("transactions")
 }

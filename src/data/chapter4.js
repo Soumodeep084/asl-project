@@ -2,7 +2,7 @@ export const chapter4 = {
     id: "Chpt4",
     label: "CHAPTER 4",
     title: "Start Conversation",
-    description: "Learn to ask questions in ASL",
+    description: "Learn how to perform conversation in ASL",
     modulesCount: 3,
     modules: [
         {
@@ -171,7 +171,6 @@ export const chapter4 = {
             label: "MODULE 3",
             title: "Practice Test - 3",
             type: "test",
-            points: 20,
             description: "Review Some of the Signs you have learned so far in the previous chapter.",
             steps: [
                 {
