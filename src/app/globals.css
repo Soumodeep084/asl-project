@@ -120,10 +120,23 @@
   body {
     @apply bg-background text-foreground;
   }
+  /* Reserve scrollbar space to avoid horizontal content shift when transient UI (like dropdowns) cause the page to become scrollable */
+  html {
+    scrollbar-gutter: stable; /* Modern browsers */
+  }
+  /* Fallback: always show vertical scrollbar area (prevents width jitter) */
+  body {
+    overflow-y: scroll;
+  }
 }
 
 /* Floating label animation for persistent tooltip-like text */
 @layer utilities {
+  /* Prevent layout shift when scrollbars appear by fixing body width to viewport minus scrollbar */
+  .layout-stable {
+    width: 100vw;
+    overflow-y: scroll;
+  }
   @keyframes float-bob {
     0% { transform: translateY(0); }
     50% { transform: translateY(-4px); }

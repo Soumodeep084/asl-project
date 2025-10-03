@@ -157,18 +157,16 @@ import { currentUser } from "@clerk/nextjs/server";
 import { getUserIdByClerkId } from "@/actions/UserActions";
 import { getChapterCompletionDetails } from "@/actions/chapterActions";
 import { getActiveSubscription } from "@/actions/PaymentActions";
+import SignInPrompt from "@/components/SignInPrompt";
 
 export default async function DashboardPage() {
   const user = await currentUser();
-  const clerkUserId = user ? user.id : null;
-
-  const userId = await getUserIdByClerkId(clerkUserId);
+  if (!user) {
+    return <SignInPrompt message="Please sign in to access your learning dashboard." returnHref="/" returnLabel="Return Home" />;
+  }
+  const userId = await getUserIdByClerkId(user.id);
   if (!userId) {
-    return (
-      <div className="p-4 sm:p-6 text-red-500 bg-[#0A0A10] text-sm sm:text-base">
-        User not found. Please sign in again.
-      </div>
-    );
+    return <SignInPrompt message="We couldn't find your learner profile. Please sign in again." returnHref="/" returnLabel="Return Home" />;
   }
 
   const subscription = await getActiveSubscription(userId);

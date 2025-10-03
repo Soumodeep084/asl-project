@@ -51,6 +51,7 @@ export async function getUserTransactions(userId) {
     try {
         const transactions = await db.transaction.findMany({
             where: { userId },
+            orderBy: { createdAt: 'desc' },
         });
         return transactions;
     } catch (error) {

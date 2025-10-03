@@ -2,11 +2,12 @@
 
 import { use, Suspense } from "react";
 import { chapterMap } from "@/data/chapterDetails";
-import { useUser } from "@clerk/nextjs";
+import {  useUser } from "@clerk/nextjs";
 import { LoaderCircle } from "lucide-react";
 import LearningCard from "./_components/LearningCard";
 import DialogueCard from "./_components/DialogueCard";
 import TestingCard from "./_components/TestingCard";
+import SignInPrompt from '@/components/SignInPrompt';
 
 export default function ModulePage({ params }) {
 
@@ -37,7 +38,12 @@ export default function ModulePage({ params }) {
     );
   }
 
-  //5. Render Module Based on Type
+  // 5. Validate user
+  if (!user) {
+    return <SignInPrompt message="Please sign in to access the module." returnHref="/" returnLabel="Return Home" />;
+  }
+
+  //6. Render Module Based on Type
   return (
     <div className="min-h-screen p-4 sm:p-6 flex flex-col items-center bg-[#1E2235] text-[#D4D4D4]">
 

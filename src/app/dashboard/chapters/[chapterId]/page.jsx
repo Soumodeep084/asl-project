@@ -162,6 +162,7 @@
 import { useState, useEffect, use } from "react";
 import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
+import SignInPrompt from "@/components/SignInPrompt";
 import { getStatusIcon, getStatusClasses, getChapterId } from "@/lib/chapterHelper.js";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import ModuleCard from "@/components/Cards/ModuleCard";
@@ -185,6 +186,11 @@ export default function ChapterPage({ params }) {
       </div>
     );
   }
+
+  if(!user){
+    return <SignInPrompt fullScreen message="Please sign in to view this chapter's modules." returnHref="/" returnLabel="Return Home" />;
+  }
+
 
   // Fetch module completion details
   useEffect(() => {

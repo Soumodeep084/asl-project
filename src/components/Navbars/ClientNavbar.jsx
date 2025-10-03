@@ -176,6 +176,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MdDashboard, MdSettings } from "react-icons/md";
+import { MdHistory, MdRefresh } from "react-icons/md";
 import { SiDictionarydotcom } from "react-icons/si";
 import {
     SignedIn,
@@ -269,9 +270,36 @@ const ClientNavbar = () => {
                                         <span className="text-xs">Settings</span>
                                     </Button>
                                 </DropdownMenuTrigger>
-                                <DropdownMenuContent>
-                                    <DropdownMenuItem onClick={handleResetProgress} disabled={loading}>
-                                        Reset Progress
+                                <DropdownMenuContent
+                                    sideOffset={8}
+                                    className="min-w-56 p-2 rounded-xl bg-[#07151A]/95 backdrop-blur-xl border border-emerald-400/15 shadow-lg shadow-emerald-900/40 ring-1 ring-emerald-300/10 animate-in fade-in zoom-in-95 transform-gpu will-change-transform isolate"
+                                >
+                                    <div className="px-2 py-1.5 text-[10px] uppercase tracking-wider font-semibold text-emerald-300/70">Account Settings</div>
+                                    <DropdownMenuItem asChild className="relative group p-0">
+                                        <Link href="/transactions" className="relative flex items-center gap-2 w-full px-3 py-2 text-sm rounded-md text-emerald-200/80 hover:text-emerald-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/40 transition duration-200 overflow-hidden">
+                                            <span className="text-emerald-300/70 group-hover:text-emerald-300 transition-colors"><MdHistory size={16} /></span>
+                                            <span>Payment History</span>
+                                            <span className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-emerald-400/15 via-emerald-300/10 to-transparent transition-opacity" />
+                                            <span className="pointer-events-none absolute inset-0 rounded-md ring-1 ring-white/5 group-hover:ring-emerald-300/20 transition" />
+                                        </Link>
+                                    </DropdownMenuItem>
+                                    <div className="my-1 h-px w-full bg-gradient-to-r from-transparent via-emerald-400/20 to-transparent" />
+                                    <DropdownMenuItem
+                                        onClick={handleResetProgress}
+                                        disabled={loading}
+                                        className="relative group p-0"
+                                    >
+                                        <button
+                                            type="button"
+                                            className="relative flex items-center gap-2 w-full px-3 py-2 text-sm font-medium rounded-md text-red-200 hover:text-red-100 disabled:text-red-300/60 disabled:cursor-not-allowed
+                                                                                bg-transparent hover:bg-red-500/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400/40 transition-colors duration-200"
+                                        >
+                                            <span className="absolute left-0 top-1 bottom-1 w-1 rounded bg-gradient-to-b from-red-400/60 via-red-500/70 to-red-600/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                            <span className="relative z-10 flex items-center gap-2">
+                                                <MdRefresh size={16} className="text-red-300 group-hover:text-red-600 transition-colors" />
+                                                <span className="tracking-wide hover:text-red-600">Reset Progress</span>
+                                            </span>
+                                        </button>
                                     </DropdownMenuItem>
                                 </DropdownMenuContent>
                             </DropdownMenu>
@@ -348,9 +376,36 @@ const ClientNavbar = () => {
                                         Settings
                                     </Button>
                                 </DropdownMenuTrigger>
-                                <DropdownMenuContent>
-                                    <DropdownMenuItem onClick={handleResetProgress} disabled={loading}>
-                                        Reset Progress
+                                <DropdownMenuContent
+                                    sideOffset={8}
+                                    className="min-w-56 p-2 rounded-xl bg-[#07151A]/95 backdrop-blur-xl border border-emerald-400/15 shadow-lg shadow-emerald-900/40 ring-1 ring-emerald-300/10 animate-in fade-in zoom-in-95 transform-gpu will-change-transform isolate"
+                                >
+                                    <div className="px-2 py-1.5 text-[10px] uppercase tracking-wider font-semibold text-emerald-300/70">Account Settings</div>
+                                    <DropdownMenuItem asChild className="relative group p-0">
+                                        <Link href="/transactions" className="relative flex items-center gap-2 w-full px-3 py-2 text-sm rounded-md text-emerald-200/80 hover:text-emerald-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/40 transition duration-200 overflow-hidden">
+                                            <span className="text-emerald-300/70 group-hover:text-emerald-300 transition-colors"><MdHistory size={16} /></span>
+                                            <span>Transactions</span>
+                                            <span className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-emerald-400/15 via-emerald-300/10 to-transparent transition-opacity" />
+                                            <span className="pointer-events-none absolute inset-0 rounded-md ring-1 ring-white/5 group-hover:ring-emerald-300/20 transition" />
+                                        </Link>
+                                    </DropdownMenuItem>
+                                    <div className="my-1 h-px w-full bg-gradient-to-r from-transparent via-emerald-400/20 to-transparent" />
+                                    <DropdownMenuItem
+                                        onClick={handleResetProgress}
+                                        disabled={loading}
+                                        className="relative group p-0"
+                                    >
+                                        <button
+                                            type="button"
+                                            className="relative flex items-center gap-2 w-full px-3 py-2 text-sm font-medium rounded-md text-red-200 hover:text-red-100 disabled:text-red-300/60 disabled:cursor-not-allowed
+                                                                                bg-transparent hover:bg-red-500/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400/40 transition-colors duration-200"
+                                        >
+                                            <span className="absolute left-0 top-1 bottom-1 w-1 rounded bg-gradient-to-b from-red-400/60 via-red-500/70 to-red-600/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                            <span className="relative z-10 flex items-center gap-2">
+                                                <MdRefresh size={16} className="text-red-300 group-hover:text-red-600 transition-colors" />
+                                                <span className="tracking-wide hover:text-red-600">Reset Progress</span>
+                                            </span>
+                                        </button>
                                     </DropdownMenuItem>
                                 </DropdownMenuContent>
                             </DropdownMenu>

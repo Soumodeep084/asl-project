@@ -175,7 +175,7 @@ export const chapter4 = {
             steps: [
                 {
                     // Video Database : chpt1/deaf.mp4
-                    id: "3.2.1",
+                    id: "4.3.1",
                     title: "Write down the shown sign!",
                     type: "input",
                     videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt1/deaf.mp4",
@@ -184,7 +184,7 @@ export const chapter4 = {
                 },
                 {
                     // Video Database : chpt1/You.mp4
-                    id: "3.2.2",
+                    id: "4.3.2",
                     title: "Write down the shown sign!",
                     type: "input",
                     videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt1/you.mp4",
@@ -193,7 +193,7 @@ export const chapter4 = {
                 },
                 {
                     // Video Database : chpt1/You deaf.mp4
-                    id: "3.2.3",
+                    id: "4.3.3",
                     title: "Fill the gap with the right word!",
                     type: "mcq",
                     videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt3/test1/you-deaf.mp4",
@@ -204,7 +204,7 @@ export const chapter4 = {
                 },
                 {
                     // Video Database : chpt1/hearing.mp4
-                    id: "3.2.4",
+                    id: "4.3.4",
                     title: "Write down the shown sign!",
                     type: "input",
                     videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt1/hearing.mp4",
@@ -213,7 +213,7 @@ export const chapter4 = {
                 },
                 {
                     // Video Database : chpt1/me.mp4
-                    id: "3.2.5",
+                    id: "4.3.5",
                     title: "Write down the shown sign!",
                     type: "input",
                     videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt1/me.mp4",
@@ -222,7 +222,7 @@ export const chapter4 = {
                 },
                 {
                     // Video Database : chpt2/tree.mp4
-                    id: "3.2.6",
+                    id: "4.3.6",
                     title: "Write down the shown sign!",
                     type: "input",
                     videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt2/tree.mp4",
@@ -231,7 +231,7 @@ export const chapter4 = {
                 },
                 {
                     // Video Database : chpt3/test1/hello-you-deaf.mp4
-                    id: "3.2.7",
+                    id: "4.3.7",
                     title: "Fill the gap with the right word!",
                     type: "mcq",
                     videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt3/test1/hello-you-deaf.mp4",
@@ -242,7 +242,7 @@ export const chapter4 = {
                 },
                 {
                     //  Video Database : chpt1/yes.mp4
-                    id: "3.2.8",
+                    id: "4.3.8",
                     title: "Write down the shown sign!",
                     type: "input",
                     videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt1/yes.mp4",
@@ -251,7 +251,7 @@ export const chapter4 = {
                 },
                 {
                     // Video Database : chpt1/no.mp4
-                    id: "3.2.9",
+                    id: "4.3.9",
                     title: "Write down the shown sign!",
                     type: "input",
                     videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt1/no.mp4",
@@ -260,7 +260,7 @@ export const chapter4 = {
                 },
                 {
                     // Video Database : chpt1/no.mp4 but in mcq
-                    id: "3.2.10",
+                    id: "4.3.10",
                     type: "mcq",
                     title: "True or False: I always have to use my left hand for signing.",
                     videoUrl: "https://tdelnfxrafeikhjqwnif.supabase.co/storage/v1/object/public/asl_videos/chpt1/no.mp4",

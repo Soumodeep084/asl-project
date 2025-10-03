@@ -1,10 +1,11 @@
 import { currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
 import { confirmPayment } from "@/actions/PaymentActions";
+import SignInPrompt from "@/components/SignInPrompt";
 
 export default async function SuccessPage({ searchParams }) {
     const user = await currentUser();
-    if (!user) return <p>Please sign in to view payment details.</p>;
+    if (!user) return <SignInPrompt message="Please sign in to view your payment details." returnHref="/" returnLabel="Return Home" />;
 
     const { session_id } = await searchParams;
     const sessionId = session_id;

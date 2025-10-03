@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import { Sparkles, ShieldCheck, Clock, Crown } from "lucide-react";
 import CheckoutButton from "@/components/CheckoutButtons";
 import { useUser } from "@clerk/clerk-react";
+import SignInPrompt from '@/components/SignInPrompt';
 
 // Quick pricing table (display only). Backend still derives price by plan+currency.
 const PRICING = {
@@ -44,6 +45,10 @@ export default function PaymentPage() {
         []
     );
     const userId = user ? user.id : null;
+
+    if(!userId){
+        return <SignInPrompt message="Please sign in to view subscription plans." returnHref="/" returnLabel="Return Home" />;
+    }
 
     // Conditional UI AFTER all hooks.
     if (!isLoaded) {

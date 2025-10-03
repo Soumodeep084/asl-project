@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
         <head>
           <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Patrick+Hand&display=swap" rel="stylesheet" />
         </head>
-        <body className={`${nunito.variable} ${inter.variable} overflow-x-hidden overflow-y-auto`}>
+  <body className={`${nunito.variable} ${inter.variable} overflow-x-hidden layout-stable`}>
           {/* <header className="flex justify-end items-center p-4 gap-4 h-16 bg-white shadow-md flex-shrink-0">
             <SignedOut>
               <SignInButton />
